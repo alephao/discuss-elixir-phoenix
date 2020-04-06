@@ -16,6 +16,15 @@
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <%= link "Discuss", to: topic_path(@conn, :index), class: "navbar-brand" %>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <%= if @conn.assigns[:user] do %>
+              <%= link "Sign out", to: auth_path(@conn, :signout) %>
+            <% else %>
+              <%= link "Sign in with GitHub", to: auth_path(@conn, :request, "github") %>
+            <% end %>
+          </li>
+        </ul>
       </nav>
     </div>
 
