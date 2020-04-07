@@ -1,0 +1,16 @@
+<h3><%= @topic.title %></h3>
+
+<div class="form-group">
+  <label for="commentContent">Comment</label>
+  <textarea class="form-control" id="commentContent" rows="2"></textarea>
+  <button id="sendComment" type="button" class="btn btn-primary">Send Comment</button>
+</div>
+
+<div id="commentsList" class="container">
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  window.createSocket(<%= @topic.id %>)
+})
+</script>
